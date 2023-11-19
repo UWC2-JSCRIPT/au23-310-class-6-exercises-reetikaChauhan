@@ -9,7 +9,7 @@ $(document).ready(function (){
   const $anchor = $('#more-info')
   $anchor.attr('href',"")
   $anchor.on('click', () =>{
-    let text = `Here's some info`
+    let text = `Here's some more info`
     alert(text)
   })
     

@@ -2,9 +2,8 @@
  * Toggles "done" class on <li> element
  */
 $(document).ready(function (){
-$('li').on('click',function(e) {
-  let $this = $(this);
-  $(this).toggleClass('done');
+$('li').on('click', event => {
+  $(event.currentTarget).toggleClass('done');
   
 })
 
@@ -12,9 +11,8 @@ $('li').on('click',function(e) {
 /**
  * Delete element when delete link clicked
  */
-$('.delete').on('click',function(e){
-  let $this = $(this);
-  $(this).parent().remove();
+$('.delete').on('click',event =>{
+  $(event.currentTarget).parent().remove();
 })
 
 /**
@@ -32,16 +30,15 @@ const addListItem = function(e) {
   $newliEl.append($span)
   $newliEl.append($newanchor)
   $('ul').append($newliEl)
-  $('.delete').on('click',function(e){
-    let $this = $(this);
-    $(this).parent().remove();
-  })
-  $('li').on('click',function(e) {
-    let $this = $(this);
-    $(this).toggleClass('done');
+  $($newliEl).on('click', (event) => {
+    const currentElement = $(event.currentTarget)
+    console.log("ce",currentElement)
+    $(currentElement).toggleClass('done');
     
   })
-  
+  $($newanchor).on('click',event =>{
+    $(event.currentTarget).parent().remove();
+  })
 
   // rest here...
 };
